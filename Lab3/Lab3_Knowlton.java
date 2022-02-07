@@ -65,7 +65,7 @@ public class Lab3_Knowlton {
             System.out.println("Incorrect! The correct answer is " + q4_ans);
         }
         
-        double scorePercentage = score/4;
+        int scorePercentage = score * 25;
         System.out.println("Congrulations! You scored a " + scorePercentage + "% !");
         
         
