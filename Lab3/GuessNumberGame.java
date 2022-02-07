@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 
-public static GuessNumberGame{
+public class GuessNumberGame{
     public static void main(String[] args){
         // Initialize Variables
         String userName;
