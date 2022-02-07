@@ -25,7 +25,7 @@ public class GuessNumberGame{
         userName = scanner.nextLine();
         // Greet user with userName 
         System.out.println("Welcome " + userName + ". This is the Number Guessing Game.");
-        secretNumber = random.nextInt(2);
+        secretNumber = random.nextInt(3);
         // Ask user for their guess and asssign it to userGuessNumber
         System.out.println("What is your guess?");
         userGuessNumber = scanner.nextInt();
