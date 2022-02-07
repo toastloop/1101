@@ -4,8 +4,8 @@
     Lab Number: 3
     Date: 7 February 2022
 */
-import java.utils.Scanner;
-import java.utils.Random;
+import java.util.Scanner;
+import java.util.Random;
 public class Lab3_Knowlton {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
