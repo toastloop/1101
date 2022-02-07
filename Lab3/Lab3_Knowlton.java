@@ -36,7 +36,7 @@ public class Lab3_Knowlton {
             score = score+1;
         }
         else {
-            System.out.println("Incorrect! The correct answer is " + q1_ans);
+            System.out.println("Incorrect! The correct answer is " + q2_ans);
         }
 
         int q3_num1 = random.nextInt(101);
@@ -49,7 +49,7 @@ public class Lab3_Knowlton {
             score = score+1;
         }
         else {
-            System.out.println("Incorrect! The correct answer is " + q1_ans);
+            System.out.println("Incorrect! The correct answer is " + q3_ans);
         }
         
         int q4_num1 = random.nextInt(101);
@@ -62,7 +62,7 @@ public class Lab3_Knowlton {
             score = score+1;
         }
         else {
-            System.out.println("Incorrect! The correct answer is " + q1_ans);
+            System.out.println("Incorrect! The correct answer is " + q4_ans);
         }
         
         double scorePercentage = (score / 4) * 100;
