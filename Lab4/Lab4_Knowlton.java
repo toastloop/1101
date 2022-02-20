@@ -56,7 +56,7 @@ public class Lab4_Knowlton {
                 price = 3.50;
             break;
             case 3:
-                item = "Cappuuccino";
+                item = "Cappuccino";
                 price = 3.25;
             break;
             case 4:

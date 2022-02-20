@@ -14,7 +14,7 @@ public class Lab3_Knowlton {
         // Initialize scanner and random
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        // Intialize score and input variables
+        // Initialize score and input variables
         int score = 0;
         int userInput; 
         
@@ -82,11 +82,14 @@ public class Lab3_Knowlton {
         // Calculate Score Percentage (25 percent for each question)
         int scorePercentage = score * 25;
         // Output score
-        System.out.println("Congrulations! You scored a " + scorePercentage + "% !");
+        System.out.println("Congratulations! You scored a " + scorePercentage + "% !");
         
         // Clear scanner
         String clearScanner = scanner.nextLine();
-
+        if(!clearScanner.isEmpty()){
+            clearScanner = null;
+        }
+        
         /*
          * Extra Credit
          */
@@ -105,7 +108,7 @@ public class Lab3_Knowlton {
         boolean equal = extraString1.equals(extraString2);
         System.out.println("Does String 1 equal String 2? " + equal);
 
-        // Concatinate Strings
+        // Concatenate Strings
         String stringConcat = extraString1.concat(extraString2);
         System.out.println("String 1 concat with String 2: " + stringConcat);
 
@@ -117,6 +120,9 @@ public class Lab3_Knowlton {
 
         // Output last character of each string
         System.out.println("Last letter of String 1: " + extraString1.charAt(extraString1.length() - 1) + "\n\r" + "Last letter of String 2: " + extraString2.charAt(extraString2.length() - 1)); 
+
+        // Close Scanner
+        scanner.close();
     }
     
 }

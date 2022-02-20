@@ -39,5 +39,8 @@ public class Strings_Feb9{
         
         System.out.println(movie1.equals(movie3));
         System.out.println(movie2.equals(movie1));
+
+        //Close Scanner
+        scanner.close();
     }
 }

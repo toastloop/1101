@@ -7,18 +7,17 @@ Switch Branching
 Example from Zybooks
 */
 
-import java.util.Scanner;
 import java.util.Random;
 
 public class Switch_Feb14_Months_2 {
 	public static void main (String [] args) {
 		int month;
 
-	   	Random rand = new Random();
+		Random rand = new Random();
 	   	//generate a number between 1 -12
 	   	//randomNum = minimum + rand.nextInt((maximum - minimum) + 1);
-	   	month = 1 + rand.nextInt((12 - 1) + 1);
-	   	System.out.println("Your random num is: " + month);
+		month = 1 + rand.nextInt((12 - 1) + 1);
+		System.out.println("Your random num is: " + month);
 
 		if(month == 1) {
 			System.out.println("January");
