@@ -122,5 +122,8 @@ public class Lab4_Knowlton_ExtraCredit {
         System.out.print("Total: $");
         System.out.printf("%.2f\n\r", (total));
 
+        // Close Scanner
+        scanner.close();
+
     }
 }
