@@ -4,8 +4,6 @@ Date: 14 February 2022
 Assignment: Switch Branch
 */
 
-package Lab4;
-
 // Import Java Random Generator
 import java.util.Random;
 public class SwitchBranch {

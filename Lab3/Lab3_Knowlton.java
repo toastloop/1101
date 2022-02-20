@@ -4,7 +4,6 @@
     Lab Number: 3
     Date: 7 February 2022
 */
-package Lab3;
 
 // Import Scanner and Random utilities
 import java.util.Scanner;

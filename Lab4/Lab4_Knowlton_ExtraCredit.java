@@ -5,10 +5,7 @@
     Date: 14 February 2022
 */
 
-package Lab4;
-
 import java.util.Scanner;
-
 public class Lab4_Knowlton_ExtraCredit {
     public static void main(String[] args){
 
