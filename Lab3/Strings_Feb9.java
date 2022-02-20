@@ -18,6 +18,10 @@ public class Strings_Feb9{
         movie1 = scanner.nextLine();
         movie2 = scanner.nextLine();
         movie3 = scanner.nextLine();
+        
+        if(movieTheater.isBlank()){
+
+        }
 
         System.out.println("Movie 1 to lowercase: " + movie1.toLowerCase());
 
