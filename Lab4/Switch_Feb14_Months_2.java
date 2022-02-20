@@ -7,6 +7,8 @@ Switch Branching
 Example from Zybooks
 */
 
+package Lab4;
+
 import java.util.Random;
 
 public class Switch_Feb14_Months_2 {

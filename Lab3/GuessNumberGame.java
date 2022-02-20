@@ -4,6 +4,8 @@
     Date: 2/7/2022
 */
 
+package Lab3;
+
 // Import Scanner to get user input
 import java.util.Scanner;
 // Import Random to generate random number

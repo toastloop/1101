@@ -1,3 +1,4 @@
+package Lab3;
 import java.util.Scanner;
 public class Strings_Feb9{
     public static void main(String[] args){
