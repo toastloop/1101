@@ -55,7 +55,7 @@ public class Lab4_Knowlton_ExtraCredit {
             price = 3.50;
         }
         else if(selection  == 3){
-            item = "Cappuuccino";
+            item = "Cappuccino";
             price = 3.25;
         }
         else if(selection  == 4){
