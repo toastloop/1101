@@ -25,6 +25,6 @@ public class Lab5_Knowlton {
                 System.out.print(i + ", ");
             }
         }
-
+        scanner.close();
     }
 }
