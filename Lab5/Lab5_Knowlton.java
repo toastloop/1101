@@ -1,3 +1,9 @@
+/*
+    Name: Lab5_Knowlton
+    Author Name: Matthew Knowlton
+    Lab Number: 5
+    Date: 14 February 2022
+*/
 import java.util.Scanner;
 import java.util.ArrayList;
 public class Lab5_Knowlton {
