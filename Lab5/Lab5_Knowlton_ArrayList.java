@@ -8,7 +8,7 @@
 import java.util.Scanner;
 // Import ArrayList  to hold  factors
 import java.util.ArrayList;
-public class Lab5_Knowlton_Corrected {
+public class Lab5_Knowlton_ArrayList {
     public static void main(String[] args){
         // Initialize Scanner for Input
         Scanner scanner = new Scanner(System.in);
@@ -18,10 +18,14 @@ public class Lab5_Knowlton_Corrected {
         int num = scanner.nextInt();
         // Initialize a variable to sum factors
         int sum = 0;
+        // Create an Array List to contain factors
+        ArrayList<Integer> factors = new ArrayList<Integer>();
         // Loop through numbers starting at 1  up to given integer increasing by 1
         for(int i = 1; i < num; i++){
             // Check if the the number is a factor of the given integer
             if((num % i) == 0){
+                // Add the number to the ArrayList of factors
+                factors.add(i);
                 // Add the number to the sum of the factors
                 sum = sum + i;
             }
@@ -31,13 +35,22 @@ public class Lab5_Knowlton_Corrected {
             // Print the number is a perfect number
             System.out.println(num + " is a perfect number!");
             System.out.print("The factors are ");
-            
-            // Loop through numbers starting at 1  up to given integer increasing by 1
-            for(int i = 0; i < num; i++){
-                // Check if the the number is a factor of the given integer
-                if((num % i) == 0){
-                    // Add the number to the sum of the factors
-                    System.out.print(i);
+            // Initialize a  variable to track the number of elements
+            int counter = 1;
+            // Loop through the factors and print them out
+            for (int i : factors) {
+                // Print factor
+                System.out.print(i);
+                // Check if the element is not the last one in the list.
+                if(counter < factors.size()){
+                    // Print a  comma and space
+                    System.out.print(", ");
+                    // Increase counter
+                    counter++;
+                } 
+                else {
+                    // Print a period if it's the last element
+                    System.out.print(".");
                 }
             }
         }
