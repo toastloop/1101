@@ -25,12 +25,12 @@ public class Lab5_Knowlton {
                 // Add the number to the sum of the factors
                 sum = sum + i;
                 if(i == 1){
-                    // Assign the number to list of factors by casting it to a string
-                    factors = "" + i;
+                    // Assign the number to list of factors
+                    factors += i;
                 }
                 else {
                     // Add the number to the list of factors with a preceding comma
-                    factors = factors + ", " + i;
+                    factors += ", " + i;
                 }
             }
         }
