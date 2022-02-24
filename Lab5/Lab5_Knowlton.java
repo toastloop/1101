@@ -27,7 +27,8 @@ public class Lab5_Knowlton {
                 if(i == 1){
                     // Assign the number to list of factors by casting it to a string
                     factors = "" + i;
-                } else {
+                }
+                else {
                     // Add the number to the list of factors with a preceding comma
                     factors = factors + ", " + i;
                 }
