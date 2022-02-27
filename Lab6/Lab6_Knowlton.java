@@ -68,7 +68,7 @@ public class Lab6_Knowlton {
             System.out.println("// Number of 0s //");
             System.out.println(currentInteger + " -> " + currentZeros);
         }
-        // Print a separator 
+        // Print a separator
         System.out.println("*****");
         // Calculate average of all integers
         double averageIntegers = (sumIntegers / numIntegers);
