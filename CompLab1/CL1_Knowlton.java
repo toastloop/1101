@@ -23,7 +23,7 @@ public class CL1_Knowlton {
         // Outer Loop Begins
         do{
             // Prints Menu
-            System.out.println("WELCOME TO MEJIA AIRLINES");
+            System.out.println("\nWELCOME TO MEJIA AIRLINES");
             System.out.println("  1. Add flight");
             System.out.println("  2. View trip");
             System.out.println("  3. Manage trip");
@@ -71,7 +71,7 @@ public class CL1_Knowlton {
                         // Close Flight List Scanner
                         flightScanner.close();
                         // Prompt for Name of City
-                        System.out.println("What flight would you like to get? Enter the name of the city");
+                        System.out.println("\nWhat flight would you like to get? Enter the name of the city");
                         System.out.print(">> ");
                         String flightCity = userScanner.next();
                         // Prompt for Flight type
@@ -108,16 +108,16 @@ public class CL1_Knowlton {
                         double flightTotal = flightCost * flightSeats;
                         String flightTypeString = (flightType == 1) ? "One Way" : "Round Trip";
                         // Add flight to list of flights
-                        userFlights += "EL PASO to " + String.format("%-12s", flightCity) + " [Total] $" + String.format("%-12s", flightTotal) + " [Type] " + String.format("%-12s", flightTypeString) + " [Seats] " + String.format("%-2s", flightSeats) + "\n";
-                        // Add flight total to running subtotal
+                        userFlights += String.format("EL PASO to %-12s [Total] $%-12.2f [Type] %-12s [Seats] %-2s", flightCity, flightTotal, flightTypeString, flightSeats);
                         subtotal += flightTotal;
+                        System.out.println("\nFLIGHT ADDED!");
                     break;
                     /**
                      * 2. View trip
                      */
                     case 2:
                         // Print list of flights
-                        System.out.println("----------------------------- TRIP INFORMATION ----------------------------");
+                        System.out.println("\n----------------------------- TRIP INFORMATION ----------------------------");
                         System.out.println(userFlights);
                     break;
                     /**
@@ -125,7 +125,7 @@ public class CL1_Knowlton {
                      */
                     case 3:
                         // Print user warning
-                        System.out.println("This option clears your cart.");
+                        System.out.println("\nThis option clears your cart.");
                         // Prompt user for confirmation
                         System.out.println("Are you sure you want to clear your trips? [type in YES or NO]");
                         System.out.print(">> ");
@@ -136,11 +136,11 @@ public class CL1_Knowlton {
                             // Clear running subtotal
                             subtotal = 0.0;
                             // Print message saying cart was cleared
-                            System.out.println("Cart cleared.");
+                            System.out.println("\nCart cleared.");
                         }
                         else{
                             // Print message telling the user nothing happened
-                            System.out.println("Cart not changed.");
+                            System.out.println("\nCart not changed.");
                             System.out.println("Going back to menu...");
                         }
                     break;
@@ -149,17 +149,16 @@ public class CL1_Knowlton {
                      */
                     case 4:
                         // Prompt user for frequent flier number
-                        System.out.println("Please enter your frequent flier number");
+                        System.out.println("\nPlease enter your frequent flier number");
                         System.out.print(">> ");
                         String frequentFlier = userScanner.next();
                         // Open frequent flier list file
                         File frequentFlierList = new File("frequent-flyer-list.txt");
                         Scanner frequentFlierScanner = new Scanner(frequentFlierList);
-                        String currentLine = "";
                         // Loop through frequent flier list
                         while(frequentFlierScanner.hasNextLine()){
                             // Check if current line matches given number
-                            if(frequentFlier.equals(frequentFlierScanner.next())){
+                            if(frequentFlierScanner.next().equals(frequentFlier)){
                                 // Apply 20% Discount
                                 subtotal = subtotal - (subtotal * 0.2);
                             }
@@ -171,15 +170,15 @@ public class CL1_Knowlton {
                         // Calculate Total with Tax
                         double total = subtotal + tax;
                         // Print current total
-                        System.out.printf("Your current total is: $%.2f\n", total);
+                        System.out.printf("\nYour current total is: $%.2f\n", total);
                         // Prompt user for credit card information
                         System.out.println("Please enter a 16 digit visa/master card number");
                         System.out.print(">> ");
                         String card = userScanner.next();
                         // Print receipt
-                        System.out.println("Your purchase for:");
+                        System.out.println("\nYour purchase for:");
                         System.out.print(userFlights);
-                        System.out.printf("was successful. You paid $%.2f using the card: %s\n", total, card);
+                        System.out.printf("\nwas successful. You paid $%.2f using the card: %s\n", total, card);
                         System.out.println("Have fun on your trip!");
                         // Exit Program
                         System.exit(0);
@@ -194,7 +193,7 @@ public class CL1_Knowlton {
             } // End of Inner Loop
         } while(true); // End of Outer Loop
         // Print Exit Statement
-        System.out.println("Thank you for using Mejia Airlines.");
+        System.out.println("\nThank you for using Mejia Airlines.");
         System.out.println("Stay Safe! Stay Hydrated! Happy Coding!");
         // Close Input Scanner
         userScanner.close();
