@@ -1,9 +1,11 @@
 {
     "java.project.sourcePaths": [
+        "Lab6",
         "Lab5",
         "Lab4",
         "Lab3",
-        "Lab6"
+        "InClass",
+        "CompLab1"
     ],
     "cSpell.words": [
         "Knowlton"

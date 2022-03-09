@@ -1,0 +1,11 @@
+Fruit Quantity_lbs PriceforEach
+Apple 2 2.33
+Watermelon 5 4.55
+Orange 10 0.34
+Pear 23 2.1
+Cherry 3 0.98
+Strawberry 5 3.2
+Nectarine 6 1.2
+Grape 3 4.5
+Mango 4 5.6
+Blueberry 6 0.10
