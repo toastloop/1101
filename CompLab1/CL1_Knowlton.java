@@ -106,8 +106,9 @@ public class CL1_Knowlton {
                         double flightCost = (flightType == 1) ? oneWay : roundTrip;
                         // Multiply cost by number of seats to find flight total
                         double flightTotal = flightCost * flightSeats;
+                        String flightTypeString = (flightType == 1) ? "One Way" : "Round Trip";
                         // Add flight to list of flights
-                        userFlights += "EL PASO to " + String.format("%-12s", flightCity) + " [Total] $" + String.format("%-12s", flightTotal) + " [Type] " + String.format("%-12s", flightType) + " [Seats] " + String.format("%-2s", flightSeats) + "\n";
+                        userFlights += "EL PASO to " + String.format("%-12s", flightCity) + " [Total] $" + String.format("%-12s", flightTotal) + " [Type] " + String.format("%-12s", flightTypeString) + " [Seats] " + String.format("%-2s", flightSeats) + "\n";
                         // Add flight total to running subtotal
                         subtotal += flightTotal;
                     break;
@@ -128,9 +129,8 @@ public class CL1_Knowlton {
                         // Prompt user for confirmation
                         System.out.println("Are you sure you want to clear your trips? [type in YES or NO]");
                         System.out.print(">> ");
-                        String clearCart = userScanner.next();
                         // If user inputs yes
-                        if(clearCart == "YES"){
+                        if(userScanner.next().equals("YES")){
                             // Clear flight string
                             userFlights = "";
                             // Clear running subtotal
@@ -158,9 +158,8 @@ public class CL1_Knowlton {
                         String currentLine = "";
                         // Loop through frequent flier list
                         while(frequentFlierScanner.hasNextLine()){
-                            currentLine = frequentFlierScanner.next();
                             // Check if current line matches given number
-                            if(currentLine == frequentFlier){
+                            if(frequentFlier.equals(frequentFlierScanner.next())){
                                 // Apply 20% Discount
                                 subtotal = subtotal - (subtotal * 0.2);
                             }
@@ -172,18 +171,18 @@ public class CL1_Knowlton {
                         // Calculate Total with Tax
                         double total = subtotal + tax;
                         // Print current total
-                        System.out.println("Your current total is: $" + total);
+                        System.out.printf("Your current total is: $%.2f\n", total);
                         // Prompt user for credit card information
                         System.out.println("Please enter a 16 digit visa/master card number");
                         System.out.print(">> ");
-                        long card = userScanner.nextLong();
+                        String card = userScanner.next();
                         // Print receipt
                         System.out.println("Your purchase for:");
                         System.out.print(userFlights);
-                        System.out.println("was successful. You paid $" + total + " using the card: " + card);
+                        System.out.printf("was successful. You paid $%.2f using the card: %s\n", total, card);
                         System.out.println("Have fun on your trip!");
                         // Exit Program
-                        System.exit(1);
+                        System.exit(0);
                     break;
                     /**
                      * Default Choice
