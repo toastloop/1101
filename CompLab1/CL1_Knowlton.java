@@ -107,8 +107,14 @@ public class CL1_Knowlton {
                         // Multiply cost by number of seats to find flight total
                         double flightTotal = flightCost * flightSeats;
                         String flightTypeString = (flightType == 1) ? "One Way" : "Round Trip";
+<<<<<<< HEAD
                         // Add flight to list of flights
                         userFlights += String.format("EL PASO to %-12s [Total] $%-12.2f [Type] %-12s [Seats] %-2s", flightCity, flightTotal, flightTypeString, flightSeats);
+=======
+                        // Add flight to list of flights 
+                        userFlights += "EL PASO to " + String.format("%-12s", flightCity) + " [Total] $" + String.format("%-12s", flightTotal) + " [Type] " + String.format("%-12s", flightTypeString) + " [Seats] " + String.format("%-2s", flightSeats) + "\n";
+                        // Add flight total to running subtotal
+>>>>>>> dffec68 (Removed unused code)
                         subtotal += flightTotal;
                         System.out.println("\nFLIGHT ADDED!");
                     break;
