@@ -108,7 +108,7 @@ public class CL1_Knowlton {
                         double flightTotal = flightCost * flightSeats;
                         String flightTypeString = (flightType == 1) ? "One Way" : "Round Trip";
                         // Add flight to list of flights
-                        userFlights += String.format("EL PASO to %-12s [Total] $%-12.2f [Type] %-12s [Seats] %-2s", flightCity, flightTotal, flightTypeString, flightSeats);
+                        userFlights += String.format("EL PASO to %-12s [Total] $%-12.2f [Type] %-12s [Seats] %-2s\n", flightCity, flightTotal, flightTypeString, flightSeats);
                         subtotal += flightTotal;
                         System.out.println("\nFLIGHT ADDED!");
                     break;
@@ -118,7 +118,7 @@ public class CL1_Knowlton {
                     case 2:
                         // Print list of flights
                         System.out.println("\n----------------------------- TRIP INFORMATION ----------------------------");
-                        System.out.println(userFlights);
+                        System.out.print(userFlights);
                     break;
                     /**
                      * 3. Manage trip
