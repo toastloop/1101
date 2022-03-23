@@ -6,6 +6,7 @@ public class March21_InLabActivity_Knowlton{
         Scanner scanner = new Scanner(System.in);
 
     	//Ask user for an integer
+        System.out.println("\n------- sumDigits ------");
         System.out.println("Please input an integer: ");
         System.out.print(">>");
     	int sumDigitsInput = scanner.nextInt();
@@ -15,6 +16,7 @@ public class March21_InLabActivity_Knowlton{
 
 
     	//Ask user for a string
+        System.out.println("\n------- changeXY ------");
         System.out.println("Please input a string: ");
         System.out.print(">>");
     	String changeXYInput = scanner.next();
@@ -24,6 +26,7 @@ public class March21_InLabActivity_Knowlton{
 
     	
     	//Ask user for a string
+        System.out.println("\n------- allStar ------");
         System.out.println("Please input a string: ");
         System.out.print(">>");
     	String allStarInput = scanner.next();
@@ -32,6 +35,7 @@ public class March21_InLabActivity_Knowlton{
         System.out.println(allStarOutput);
     	
     	//Ask user for a string
+        System.out.println("\n------- stringClean ------");
         System.out.println("Please input a string: ");
         System.out.print(">>");
     	String stringCleanInput = scanner.next();
@@ -41,6 +45,7 @@ public class March21_InLabActivity_Knowlton{
 
     	
     	//Ask user for a string
+        System.out.println("\n------- mirrorEnds ------");
         System.out.println("Please input a string: ");
         System.out.print(">>");
     	String mirrorEndsInput = scanner.next();
@@ -49,6 +54,7 @@ public class March21_InLabActivity_Knowlton{
         System.out.println(mirrorEndsOutput);
 
     	//Ask user for 3 integers
+        System.out.println("\n------- closeFar ------");
         System.out.println("Please input three integers: ");
         System.out.print(">>");
     	int closeFarInput1 = scanner.nextInt();
@@ -113,23 +119,19 @@ public class March21_InLabActivity_Knowlton{
 
     /*Solve using a loop. 
     *Given a string, look for a mirror image (backwards) string at both the beginning and end of the given string. 
-    *In other words, zero or more characters at the very begining of the given string, and at the 
+    *In other words, zero or more characters at the very beginning of the given string, and at the 
     *very end of the string in reverse order (possibly overlapping). 
     *For example, the string "abXYZba" has the mirror end "ab".  */
     public static String mirrorEnds(String string) {
+        String pattern = "";
         for(int i = 0; i < string.length(); i++){
-            String startingString = string.substring(0, i);
-            String endingString = string.substring((string.length() - i));
-            String reverseString = "";
-            for(int j = endingString.length(); j < 0; j++){
-                reverseString += endingString.charAt(j);
-            }
-            if(startingString == reverseString){
-                return startingString;
+            if(string.charAt(i) == string.charAt(string.length() - i - 1)){
+                pattern += string.charAt(i);
+            } else {
+                break;
             }
         }
-    	return string;//change return statement if needed
-    	
+        return  pattern;
     }
 
     /*Given three ints, a b c, return true if one of b or c is "close" (differing from a by at most 1), 
@@ -142,7 +144,9 @@ public class March21_InLabActivity_Knowlton{
         else if((Math.abs(a - c) <= 1) && (Math.abs(a - b) >= 2) && (Math.abs(b - c) >= 2)){
             return true;
         }
-    	return false;//change return statement if needed
+        else{
+    	    return false;//change return statement if needed
+        }
     }
 
 }
