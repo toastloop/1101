@@ -96,7 +96,7 @@ public class CL1_Knowlton {
                             oneWay = flightScanner.nextDouble();
                             roundTrip = flightScanner.nextDouble();
                             // if city is equal to chosen city, break loop
-                            if(flightCity == city){
+                            if(flightCity.equals(city)){
                                 break;
                             }
                         }
