@@ -47,31 +47,31 @@ public class CL2_Knowlton {
         //The function takes care of sign in action.
         boolean signedIn = false;
         do{
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your email address:");
-        String userName = scanner.next();
-        System.out.println("Enter your password:");
-        String passWord = scanner.next();
-        // Open Authentication List File
-        File userList = new File("authenticateFile.txt");
-        // Initiate a Scanner for Authentication List
-        Scanner userScanner = new Scanner(userList);
-        // Loop through each line of Authentication List
-        while(userScanner.hasNextLine()){
-            String userListName = userScanner.next();
-            String userListPassword = userScanner.next();
-            // Check that username and password equal  provided  credentials
-            if(userName.equals(userListName) && passWord.equals(userListPassword)){
-                signedIn = true;
-                break;
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter your email address:");
+            String userName = scanner.next();
+            System.out.println("Enter your password:");
+            String passWord = scanner.next();
+            // Open Authentication List File
+            File userList = new File("authenticateFile.txt");
+            // Initiate a Scanner for Authentication List
+            Scanner userScanner = new Scanner(userList);
+            // Loop through each line of Authentication List
+            while(userScanner.hasNextLine()){
+                String userListName = userScanner.next();
+                String userListPassword = userScanner.next();
+                // Check that username and password equal  provided  credentials
+                if(userName.equals(userListName) && passWord.equals(userListPassword)){
+                    signedIn = true;
+                    break;
+                }
             }
-        }
-        if(signedIn == false){
-            System.out.println("Error: Invalid Email or Password");
-        }
-        userScanner.close();
+            if(signedIn == false){
+                System.out.println("Error: Invalid Email or Password");
+            }
+            userScanner.close();
         }while(signedIn == false);
-        return true;
+        return signedIn;
     }
 
     public static boolean signUp(){
