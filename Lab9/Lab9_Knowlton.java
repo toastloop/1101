@@ -5,7 +5,7 @@
     Date: 5 April 2022
 */
 // Import Scanner to read user input
-import java.util.*;
+import java.util.Scanner;
 public class Lab9_Knowlton {
 
     public static void main(String[] args) {
@@ -42,7 +42,7 @@ public class Lab9_Knowlton {
         System.out.println("The maximum value in the array is: " + maximumValue(userNums));
         // Print Minimum Value and Index
         System.out.println("The minimum value in the array is: " + minimumValue(userNums));
-        // Print number of Even Elements
+        // Print Number of Even Elements
         System.out.println("There are " + evenNumber(userNums) + " even number(s) in  the  array.");
         // Print Values of Even Elements
         System.out.println("The even numbers are : " + evenNumberList(userNums));
