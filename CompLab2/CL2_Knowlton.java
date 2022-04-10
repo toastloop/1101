@@ -22,6 +22,36 @@ public class CL2_Knowlton {
         if(authenticated == true){
             System.out.println("User is Logged In");
         }
+
+        do{
+            displayMenu();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Please enter a selection: ");
+            int userChoice = scanner.nextInt();
+            switch(userChoice){
+                case '1':
+                    buyTicket();
+                break;
+                case '2':
+                    reserveRide();
+                break;
+                case '3':
+                    buyFood();
+                break;
+                case '4':
+                    showOrder();
+                break;
+                case '5':
+                    checkOut();
+                break;
+                case '6':
+                    clearCart();
+                break;
+                case '7':
+                    exitProgram();
+                break;
+            }
+        }while(true);
     }
 
     public static void welcomingMessage() {
@@ -187,4 +217,25 @@ public class CL2_Knowlton {
         return true;
     }
 
+    public static void buyTicket() {
+        //TODO
+    }
+    public static void reserveRide(){
+        //TODO
+    }
+    public static void buyFood(){
+        //TODO
+    }
+    public static void showOrder(){
+        //TODO
+    }
+    public static void checkOut(){
+        //TODO
+    }
+    public static void clearCart(){
+        //TODO
+    }
+    public static void exitProgram() {
+        System.exit(0);
+    }
 }
