@@ -334,7 +334,7 @@ public class CL2_Knowlton {
 
                 case 6:
                     // Prompt user for confirmation
-                    System.out.println("Are you sure? [y/n]");
+                    System.out.println("\nAre you sure? [y/n]");
                     System.out.print(">> ");
                     char userInput = scanner.next().charAt(0);
                     if(userInput == 'y'){
