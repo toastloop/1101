@@ -398,7 +398,7 @@ public class CL2_Knowlton {
     public static boolean signIn() throws IOException{
         //The function takes care of sign in action.
         boolean signedIn = false;
-        // tracks login attemps
+        // tracks login attempts
         int loginAttempts = 0;
         // Loop for user login
         do{
