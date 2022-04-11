@@ -9,12 +9,12 @@ of an academic course at The University of Texas at El Paso and
 a grade will be assigned for the work produced individually by
 the student.
 */
-import java.util.Scanner;
+import java.util.*;
 import java.io.*;
 public class CL2_Knowlton {
-
     public static void main(String[] args) throws FileNotFoundException{
         welcomingMessage();
+        /*
         boolean authenticated = false;
         do{
             authenticated = authenticator();
@@ -22,41 +22,235 @@ public class CL2_Knowlton {
         if(authenticated == true){
             System.out.println("User is Logged In");
         }
+        */
+
+        int currentTicket = 0;
+        char currentType = ' ';
+        double currentPrice = 0.0;
+        String currentTime = "";
+        String currentDate = "";
+        int currentAmount = 0;
+        String currentFoodItem = "";
+        double currentFoodPrice =  0.0;
+        String currentStateTax = "";
+        double currentStateRate = 0.0;
+        double subTotal = 0.0;
+        double discountPrice  = 0.0;
+        double taxAmount = 0.0;
+        double totalAmount = 0.0;
+        String cart = "";
+        Scanner scanner = new Scanner(System.in);
 
         do{
             displayMenu();
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Please enter a selection: ");
+            System.out.println("\nPlease enter a selection: ");
+            System.out.print(">> ");
             int userChoice = scanner.nextInt();
+
             switch(userChoice){
-                case '1':
-                    buyTicket();
+                case 1:
+                    boolean addTicket = false;
+                    do{
+                        System.out.println("\n+---------------------------------------------+");
+                        System.out.println("+       -- // Akbar's Theme Park // --        +");
+                        System.out.println("+---------------------------------------------+");
+                        System.out.printf("| %-6s | %-8s | %-12s | %-8s |\n", "Ticket", "Time", "PriceForEach", "Date");
+                        System.out.println("+--------+----------+--------------+----------+");
+                        File ticketList = new File("tickets.txt");
+                        Scanner ticketScanner = new Scanner(ticketList);
+                        ticketScanner.nextLine();
+                        int i = 1;
+                        while(ticketScanner.hasNextLine()){
+                            System.out.printf("| %-6d | %-8s | %-12s | %-8s |\n", i, ticketScanner.next(), ticketScanner.nextDouble(), ticketScanner.next());
+                            System.out.println("+--------+----------+--------------+----------+");
+                            i++;
+                        }
+                        ticketScanner.close();
+                        
+                        System.out.println("\nSelect a ticket from the list [1-8]");
+                        System.out.print(">> ");
+                        currentTicket = scanner.nextInt() - 1;
+
+                        System.out.println("\nAre you a student (s), an adult (a), or a kid (k)? [s/a/k]");
+                        System.out.print(">> ");
+                        String stringType = scanner.next();
+                        currentType = stringType.charAt(0);
+
+                        System.out.println("\nHow many tickets do you want?");
+                        System.out.print(">> ");
+                        currentAmount = scanner.nextInt();
+
+                        File ticketCheckList = new File("tickets.txt");
+                        Scanner ticketCheckScanner = new Scanner(ticketCheckList);
+                        ticketCheckScanner.nextLine();
+                        int j = 0;
+                        while(ticketCheckScanner.hasNextLine()){
+                            currentTime = ticketCheckScanner.next();
+                            currentPrice = ticketCheckScanner.nextDouble();
+                            currentDate = ticketCheckScanner.next();
+                            if(currentTicket == j){
+                                break;
+                            } else{
+                                j++;
+                            }
+                        }
+                        ticketCheckScanner.close();
+
+                        if(currentType == 's'){
+                            discountPrice = 0.08;
+                        } else if(currentType == 'a'){
+                            discountPrice = 0.0;
+                        } else if(currentType =='k'){
+                            discountPrice = 0.09;
+                        }
+                        double ticketPrice = ((currentPrice * currentAmount) - (currentPrice * currentAmount * discountPrice));
+
+                        subTotal = subTotal + ticketPrice;
+
+                        cart += currentTime + " $" + roundCents(ticketPrice) + " " + currentDate + "\n";
+                        addTicket = true;
+                    } while(addTicket == false);
+                    System.out.printf("The ticket(s) have been added to your cart, your balance is  $%.2f", subTotal);
                 break;
-                case '2':
-                    reserveRide();
+
+                case 2:
+                    int rideCost = 0;
+                    if(currentType == ' '){
+                        break;
+                    }
+                    if(currentType == 's'){
+                        System.out.println("Your ride cost is $20.00 per student, for " + currentTime);
+                        rideCost = 20;
+                    }
+                    else if(currentType == 'a'){
+                        System.out.println("Your ride cost is $30.00 per adult, for " + currentTime);
+                        rideCost = 30;
+                    }
+                    else if(currentType == 'k') {
+                        System.out.println("Your ride cost is free per child, for " + currentTime);
+                        rideCost = 0;
+                    }
+
+                    subTotal = subTotal + (currentAmount * rideCost);
+                    cart += "A ride is reserved    $" + (currentAmount * rideCost) + "\n";
+
+                    System.out.printf("The ride reservation has  been added to your cart, your balance is $%.2f", subTotal);
                 break;
-                case '3':
-                    buyFood();
+
+                case 3:
+                    System.out.println("\n+-----------------------+");
+                    System.out.println("+ -- // Food Menu // -- +");
+                    System.out.println("+-----------------------+");
+                    System.out.printf("| %-13s | %-5s |\n", "Item", "Price");
+                    System.out.println("+---------------+-------+");
+                    File foodFile = new File("Foodmenu.txt");
+                    Scanner foodList = new Scanner(foodFile);
+                    foodList.nextLine();
+                    while(foodList.hasNextLine()){
+                        System.out.printf("| %-13s | %-5.2f |\n", foodList.next(), foodList.nextDouble());
+                        System.out.println("+---------------+-------+");
+                    }
+                    foodList.close();
+
+                    System.out.println("\nWhat do you want to order? (type the menu item)");
+                    System.out.print(">> ");
+                    String userItem = scanner.next();
+
+                    File foodCheckList = new File("Foodmenu.txt");
+                    Scanner foodCheckScanner = new Scanner(foodCheckList);
+                    foodCheckScanner.nextLine();
+                    while(foodCheckScanner.hasNextLine()){
+                        currentFoodItem = foodCheckScanner.next();
+                        currentFoodPrice = foodCheckScanner.nextDouble();
+                        if(currentFoodItem.equals(userItem)){
+                            break;
+                        }
+                    }
+                    foodCheckScanner.close();
+
+                    cart += currentFoodItem + " $"  + currentFoodPrice + "\n";
+
+                    subTotal = subTotal + currentFoodPrice;
+                    System.out.println("\nA " + currentFoodItem + " has been added to your order.");
+                    System.out.printf("Your current balance is $%2.2f\n", subTotal);
                 break;
-                case '4':
-                    showOrder();
+
+                case 4:
+                    System.out.print("\n" + cart);
                 break;
-                case '5':
-                    checkOut();
+
+                case 5:
+                    System.out.println("\n" + cart);
+                    System.out.printf("Your total before tax is $%2.2f\n", subTotal);
+                    System.out.println("Please enter your state: [Texas/New-York/...]");
+                    String taxInput = scanner.next();
+                    File taxList = new File("StatesTaxRate.txt");
+                    Scanner taxScanner = new Scanner(taxList);
+                    taxScanner.nextLine();
+                    while(taxScanner.hasNextLine()){
+                        currentStateTax = taxScanner.next();
+                        currentStateRate = taxScanner.nextDouble();
+                        if(currentStateTax.equals(taxInput)){
+                            break;
+                        }
+                    }
+                    taxScanner.close();
+                    System.out.println("\nYour tax rate is  " + currentStateRate);
+                    taxAmount = subTotal * (currentStateRate * 0.01);
+                    totalAmount = subTotal + taxAmount;
+                    System.out.printf("Your total after tax is: %.2f\n", totalAmount);
+                    System.out.println("\nPlease enter your card number: (16 digits)");
+                    System.out.print(">>  ");
+                    String creditCard = scanner.next();
+                    System.out.println("\nThe transaction has been approved! Thank you!");
+                    System.out.println("Your cart is now empty!");
+                    currentTicket = 0;
+                    currentType = ' ';
+                    currentPrice = 0.0;
+                    currentTime = "";
+                    currentDate = "";
+                    currentAmount = 0;
+                    currentFoodItem = "";
+                    currentFoodPrice =  0.0;
+                    subTotal = 0.0;
+                    discountPrice  = 0.0;
+                    taxAmount = 0.0;
+                    totalAmount = 0.0;
+                    cart = "";
                 break;
-                case '6':
-                    clearCart();
+
+                case 6:
+                    System.out.println("Are you sure? [y/n]");
+                    System.out.print(">> ");
+                    char userInput = scanner.next().charAt(0);
+                    if(userInput == 'y'){
+                        currentTicket = 0;
+                        currentType = ' ';
+                        currentPrice = 0.0;
+                        currentTime = "";
+                        currentDate = "";
+                        currentAmount = 0;
+                        currentFoodItem = "";
+                        currentFoodPrice =  0.0;
+                        subTotal = 0.0;
+                        discountPrice  = 0.0;
+                        taxAmount = 0.0;
+                        totalAmount = 0.0;
+                        cart = "";
+                        System.out.println("Items from your cart have been removed!");
+                    }
                 break;
-                case '7':
-                    exitProgram();
+
+                case 7:
+                    System.out.println("Have a Great Day, See You Soon!");
+                    System.exit(0);
                 break;
             }
         }while(true);
     }
-
     public static void welcomingMessage() {
         //This function displays a welcoming message.
-        System.out.println("*************************************");
+        System.out.println("\n*************************************");
         System.out.println("******* Welcome to Akbar Park *******");
         System.out.println("*************************************");
     }
@@ -206,36 +400,19 @@ public class CL2_Knowlton {
         return (password.length() >= 8);
     }
 
+    public static double roundCents(double value){
+        return (Math.round(value * Math.pow(10, 2)) / Math.pow(10, 2));
+    }
+
     public static void displayMenu() {
-        //TODO
         // This function displays the options in the menu
-    }
-
-    public static boolean isAllDigits(String str) {
-        //TODO
-        //this function checks if the credit card number is all in digits.
-        return true;
-    }
-
-    public static void buyTicket() {
-        //TODO
-    }
-    public static void reserveRide(){
-        //TODO
-    }
-    public static void buyFood(){
-        //TODO
-    }
-    public static void showOrder(){
-        //TODO
-    }
-    public static void checkOut(){
-        //TODO
-    }
-    public static void clearCart(){
-        //TODO
-    }
-    public static void exitProgram() {
-        System.exit(0);
+        System.out.println("\nChoose an Item [1-7]");
+        System.out.println("1 - Buy Ticket");
+        System.out.println("2 - Reserve a Ride");
+        System.out.println("3 - Buy Food");
+        System.out.println("4 - Show the Orders");
+        System.out.println("5 - Check Out");
+        System.out.println("6 - Clear the Cart");
+        System.out.println("7 - Exit");
     }
 }
