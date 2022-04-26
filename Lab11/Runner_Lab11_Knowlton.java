@@ -14,26 +14,26 @@ public class Runner_Lab11_Knowlton {
         City[] listOfCities = new City[20];
 
         /* Source: https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population */
-        listOfCities[0] = new City ("El Paso", "Texas", 258.4, 678815, 3740);
-        listOfCities[1] = new City ("New York", "New York State", 300.5, 8804190, 33);
-        listOfCities[2] = new City ("Los Angeles", "California", 469.5, 3898747, 305);
-        listOfCities[3] = new City ("Chicago", "Illinois", 227.7, 2746388, 597);
-        listOfCities[4] = new City ("Houston", "Texas", 640.4, 2304580, 80);
-        listOfCities[5] = new City ("Phoenix", "Arizona", 518.0, 1608139, 1086);
-        listOfCities[6] = new City ("Philadelphia", "Pennsylvania", 134.4, 1603797, 39);
-        listOfCities[7] = new City ("San Antonio", "Texas", 498.8, 1434625, 650);
-        listOfCities[8] = new City ("San Diego", "California", 325.9, 1386932, 62);
-        listOfCities[9] = new City ("Dallas", "Texas", 339.6, 1304379, 430);
-        listOfCities[10] = new City ("San Jose", "California", 178.3, 1013240, 82);
-        listOfCities[11] = new City ("Austin", "Texas", 319.9, 961855, 289);
-        listOfCities[12] = new City ("Jacksonville", "Florida", 747.3, 949611, 16);
-        listOfCities[13] = new City ("Fort Worth", "Texas", 342.9, 918915, 653);
-        listOfCities[14] = new City ("Columbus", "Ohio", 220.0, 905748, 902);
-        listOfCities[15] = new City ("Indianapolis", "Indiana", 361.6, 887642, 718);
-        listOfCities[16] = new City ("Charlotte", "North Carolina", 308.3, 874579, 761);
-        listOfCities[17] = new City ("San Francisco", "California", 46.9, 873965, 52);
-        listOfCities[18] = new City ("Seattle", "Washington", 83.8, 737015, 175);
-        listOfCities[19] = new City ("Denver", "Colorado", 153.1, 715522, 5130);
+        listOfCities[0] = new City ("New York", "New York State", 300.5, 8804190, 33);
+        listOfCities[1] = new City ("Los Angeles", "California", 469.5, 3898747, 305);
+        listOfCities[2] = new City ("Chicago", "Illinois", 227.7, 2746388, 597);
+        listOfCities[3] = new City ("Houston", "Texas", 640.4, 2304580, 80);
+        listOfCities[4] = new City ("Phoenix", "Arizona", 518.0, 1608139, 1086);
+        listOfCities[5] = new City ("Philadelphia", "Pennsylvania", 134.4, 1603797, 39);
+        listOfCities[6] = new City ("San Antonio", "Texas", 498.8, 1434625, 650);
+        listOfCities[7] = new City ("San Diego", "California", 325.9, 1386932, 62);
+        listOfCities[8] = new City ("Dallas", "Texas", 339.6, 1304379, 430);
+        listOfCities[9] = new City ("San Jose", "California", 178.3, 1013240, 82);
+        listOfCities[10] = new City ("Austin", "Texas", 319.9, 961855, 289);
+        listOfCities[11] = new City ("Jacksonville", "Florida", 747.3, 949611, 16);
+        listOfCities[12] = new City ("Fort Worth", "Texas", 342.9, 918915, 653);
+        listOfCities[13] = new City ("Columbus", "Ohio", 220.0, 905748, 902);
+        listOfCities[14] = new City ("Indianapolis", "Indiana", 361.6, 887642, 718);
+        listOfCities[15] = new City ("Charlotte", "North Carolina", 308.3, 874579, 761);
+        listOfCities[16] = new City ("San Francisco", "California", 46.9, 873965, 52);
+        listOfCities[17] = new City ("Seattle", "Washington", 83.8, 737015, 175);
+        listOfCities[18] = new City ("Denver", "Colorado", 153.1, 715522, 5130);
+        listOfCities[19] = new City ("El Paso", "Texas", 258.4, 678815, 3740);
 
         /* User Input */
         Scanner scanner = new Scanner(System.in);
@@ -171,7 +171,7 @@ public class Runner_Lab11_Knowlton {
         scanner.close();
 
         /* Print the goodbye message */
-        System.out.println("\nGoodbye!");
+        System.out.println("\nHave a good day. Bye!");
 
         /* Exit the program */
         System.exit(0);
