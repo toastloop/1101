@@ -32,6 +32,7 @@ public class Runner_Lab12_Knowlton {
         bookList[8] = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925);
         bookList[9] = new Book("Animal Farm", "George Orwell", 1945);
 
+        /* Create a null head object */
         Book head = null;
 
         /* Links Preexisting Books */
