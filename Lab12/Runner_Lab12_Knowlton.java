@@ -11,14 +11,13 @@ import java.util.Scanner;
 
 public class Runner_Lab12_Knowlton {
 
-    /* Scanner object parameter */
-    public static Scanner scanner = new Scanner(System.in).useLocale(Locale.US).useDelimiter("\n");
-
     /**
      * Main method
      * @param args
      */
     public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in).useLocale(Locale.US).useDelimiter("\n");
 
         /* Preexisting Books */
         Book[] bookList = new Book[10];
