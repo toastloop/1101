@@ -14,9 +14,6 @@ public class Runner_Lab12_Knowlton {
     /* Scanner object parameter */
     public static Scanner scanner = new Scanner(System.in).useLocale(Locale.US).useDelimiter("\n");
 
-    /* Head node of the linked list */
-    public static Book headNode = null;
-
     /**
      * Main method
      * @param args
@@ -36,17 +33,19 @@ public class Runner_Lab12_Knowlton {
         bookList[8] = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925);
         bookList[9] = new Book("Animal Farm", "George Orwell", 1945);
 
+        Book head = null;
+
         /* Links Preexisting Books */
         for(Book book : bookList){
 
             /* If head is null set book to head */
-            if(headNode == null){
-                headNode = book;
+            if(head == null){
+                head = book;
             }
 
             /* Else link book to next node */
             else {
-                Book current = headNode;
+                Book current = head;
                 while(current.nextNode != null){
                     current = current.nextNode;
                 }
@@ -74,7 +73,7 @@ public class Runner_Lab12_Knowlton {
             switch(scanner.nextInt()){
 
                 /* Print library */
-                case 1 -> print(headNode);
+                case 1 -> print(head);
 
                 /* Add book to library */
                 case 2 -> {
@@ -96,7 +95,7 @@ public class Runner_Lab12_Knowlton {
 
                     /* Create book object and add to linked list */
                     Book newBook = new Book(title, author, year);
-                    add(headNode, newBook);
+                    head = add(head, newBook);
 
                     /* Print add message */
                     System.out.println("\nA new book was added to the library!");
@@ -104,7 +103,7 @@ public class Runner_Lab12_Knowlton {
                 }
 
                 /* Remove book from library */
-                case 3 -> remove(headNode);
+                case 3 -> head = remove(head);
 
                 /* Exit program */
                 case 4 -> {
@@ -124,7 +123,7 @@ public class Runner_Lab12_Knowlton {
                 default -> {
 
                     /* Print Message */
-                    System.out.println("Please input an integer between [1-4].");
+                    System.out.println("\nPlease input an integer between [1-4].");
 
                 }
 
@@ -187,10 +186,10 @@ public class Runner_Lab12_Knowlton {
         if(current == null){
 
             /* Set head to current new book */
-            headNode = toAdd;
+            head = toAdd;
 
             /* Return head node */
-            return headNode;
+            return head;
 
         }
 
@@ -220,8 +219,8 @@ public class Runner_Lab12_Knowlton {
             /* Print warning */
             System.out.println("\nWARNING!! The library was already empty!");
 
-            /* Return headNode */
-            return headNode;
+            /* Return head */
+            return head;
 
         } 
 
@@ -234,11 +233,11 @@ public class Runner_Lab12_Knowlton {
             /* Print count message */
             System.out.println("There are 0 books in the library.");
 
-            /* Set headNode to null */
-            headNode = null;
+            /* Set head to null */
+            head = null;
 
-            /* Return headNode */
-            return headNode;
+            /* Return head */
+            return head;
 
         }
 
@@ -271,7 +270,7 @@ public class Runner_Lab12_Knowlton {
             /* Set the nextNode to null */
             current.nextNode = null;
 
-            /* Return headNode */
+            /* Return head */
             return head;
 
         }
