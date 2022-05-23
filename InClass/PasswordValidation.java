@@ -39,6 +39,6 @@ public class PasswordValidation {
         } else {
             System.out.println("Password Invalid");
         }
-        
+        scanner.close();
     }
 }

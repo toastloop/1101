@@ -386,6 +386,7 @@ public class CL2_Knowlton {
         System.out.println("\nAlready signed up? [y/n]");
         System.out.print(">>  ");
         String userInput = scanner.next();
+        scanner.close();
 
         // Direct user to either Sign in or Sign up
         if(userInput.equals("y")){
@@ -436,6 +437,7 @@ public class CL2_Knowlton {
             }
             // Close scanner
             userScanner.close();
+            scanner.close();
             // Add one to login attempts
             loginAttempts++;
         }while(signedIn == false);
@@ -492,6 +494,7 @@ public class CL2_Knowlton {
                 signedUp = true;
                 break;
             }
+            scanner.close();
         } while(signedUp == false);
         // return sign up status
         return signedUp;
